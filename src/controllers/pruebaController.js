@@ -1,6 +1,15 @@
 const pruebaService = require('../services/pruebaService');
 
-exports.getStatus = (req, res) => {
-  const data = pruebaService.getStatus();
-  res.status(200).json(data);
-}
+const obtenerPrueba = async (req, res) => {
+    try {
+        const datos = await pruebaService.obtenerDatos();
+        res.json(datos); // Responde exitosamente con los datos
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error interno del servidor' });
+    }
+};
+
+module.exports = {
+    obtenerPrueba,
+};

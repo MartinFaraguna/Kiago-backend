@@ -3,6 +3,6 @@ const router = express.Router();
 const pruebaController = require('../controllers/pruebaController');
 
 // Ruta de prueba
-router.get('/status', pruebaController.getStatus);
+router.get('/status', pruebaController.obtenerPrueba);
 
 module.exports = router;
