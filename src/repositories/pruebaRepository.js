@@ -23,4 +23,26 @@ const consultarBaseDeDatos = async () => {
     }
 };
 
-module.exports = { consultarBaseDeDatos };
+const consultarImagenes = async () => {
+    try {
+        // Hacemos la consulta real a tu tabla 'imagenes'
+        const [rows] = await db.query('SELECT * FROM imagenes_locales');
+        return rows;
+    } catch (error) {
+        console.error('Error en la base de datos:', error);
+        throw new Error('Error al consultar las imágenes');
+    }
+};
+
+const consultarCategorias = async () => {
+    try {
+        // Hacemos la consulta real a tu tabla 'categorias'
+        const [rows] = await db.query('SELECT * FROM categorias');
+        return rows;
+    } catch (error) {
+        console.error('Error en la base de datos:', error);
+        throw new Error('Error al consultar las categorías');
+    }
+};
+
+module.exports = { consultarBaseDeDatos, consultarImagenes, consultarCategorias };
